@@ -1,0 +1,6 @@
+<template name='cardTemplate'>
+  <view catchtap='checkHealthItem' class='card-container'>
+    <image class='cardImage' src='/images/crab.png'></image>
+    <text class='joinCount'>77164人已参加</text>
+  </view>
+</template>
