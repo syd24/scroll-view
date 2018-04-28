@@ -6,10 +6,14 @@ Page({
     currentIndex: 0,//当前页面索引
     scrHeight: wx.getSystemInfoSync().windowHeight,
     scrollLeft: 0,
+    
   },
 
   onLoad: function () {
-
+    var dataArr = ["精选", "癌症自查", "心理", "健康", "趣味", "两性", "全部"];
+    this.setData({
+      dataArr: dataArr,
+    })
   },
 
   // 切换选项按钮
@@ -20,12 +24,10 @@ Page({
       currentIndex: currentID - 1,
     })
 
+
+
     var width = 0;
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     width = res.windowWidth
-    //   },
-    // })
+   
     var that = this;
     var currentID = event.currentTarget.id;
     wx.createSelectorQuery().select('#' + currentID).boundingClientRect(function (rect) {
@@ -57,8 +59,6 @@ Page({
 
   //选项卡点击事件
   checkHealthItem: function (event) {
-    wx.navigateTo({
-      url: 'transitionEvaluation/transitionEvalution',
-    })
+   
   }
 })

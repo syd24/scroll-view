@@ -1,18 +1,14 @@
 <import src="../card-template/card-template.wxml" />
 
 <view class='container-evaluating'>
- 
-    <scroll-view id='scrollView-id' scroll-left="{{scrollLeft}}" class='scrollView' scroll-x style="width: 100%">
-      <view id='id1' class="normalBtn {{status == '1'?'selected' : '' }}" catchtap='btnClick' data-id='1'>精选</view>
-    <view id='id2' class="normalBtn {{status == '2'?'selected' : '' }}" catchtap='btnClick' data-id='2'>癌症自查</view>
-    <view id='id3' class="normalBtn {{status == '3'?'selected' : '' }}" catchtap='btnClick' data-id='3'>心理</view>
-    <view id='id4' class="normalBtn {{status == '4'?'selected' : '' }}" catchtap='btnClick' data-id='4'>健康</view>
-    <view id='id5' class="normalBtn {{status == '5'?'selected' : '' }}" catchtap='btnClick' data-id='5'>趣味</view>
-    <view id='id6' class="normalBtn {{status == '6'?'selected' : '' }}" catchtap='btnClick' data-id='6'>两性</view>
-     <view id='id7' class="normalBtn {{status == '7'?'selected' : '' }}" catchtap='btnClick' data-id='7'>全部</view>
-    </scroll-view>
-    
-<view class='bottomScrView'>
+
+  <scroll-view id='scrollView-id' scroll-left="{{scrollLeft}}" class='scrollView' scroll-x style="width: 100%">
+    <view class='normalBtn' wx:for="{{dataArr}}" wx:for-index='index'>
+      <view id="id{{index+1}}" class="normalBtn {{status == (index+1) ? 'selected' : '' }}" catchtap='btnClick' data-id="{{index+1}}">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <view class='bottomScrView'>
     <swiper duration='5' current="{{currentIndex}}" class='swiper-card' bindchange='changeIndex' vertical="{{false}}" style='height:{{scrHeight-39}}px'>
       <swiper-item class='one'>
         <scroll-view scroll-y='true' style='height:{{scrHeight-38}}px'>
